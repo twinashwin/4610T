@@ -35,8 +35,7 @@ void driveCode() {
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-
-  //drive code
+  
   thread driveThread(driveCode);
   
   while (true) {
