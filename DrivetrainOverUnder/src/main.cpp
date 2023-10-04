@@ -11,12 +11,12 @@
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // Controller1          controller                    
-// frontRight           motor         1               
-// frontLeft            motor         2               
-// backRight            motor         3               
-// backLeft             motor         4               
-// intake               motor         5               
-// cata                 motor         6               
+// frontRight           motor         5               
+// frontLeft            motor         6               
+// backRight            motor         7               
+// backLeft             motor         8               
+// intake               motor         9               
+// cata                 motor         11              
 // piston               digital_out   A               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -36,13 +36,12 @@ int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-
   //drive Code
 
-  thread driveThread(driveCode);
   
   
   while (true) {
+    thread driveThread(driveCode);  
 
     //intake
     
@@ -59,7 +58,7 @@ int main() {
     //cata
 
     if (Controller1.ButtonR2.pressing()) {
-      cata.spin(forward);
+      cata.spin(forward, 100, percent);
     }
     else {
       cata.stop();
